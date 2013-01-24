@@ -1,6 +1,6 @@
 TimePedia
 =========
-A timeline Wikipedia viewer based in the Wikipedia categories using DBPedia and SPARQL.
+A timeline Wikipedia RESTFul service based in the Wikipedia categories using DBPedia and SPARQL.
 It's in a very early stage of development (no security, no framework, for a rapid JSON prototyping of the timeline and the events).
 
 Installation
