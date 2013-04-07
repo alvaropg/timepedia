@@ -550,7 +550,7 @@ function charXML($parser, $data)	{
 
 }
 
-class sparql_results extends ArrayIterator
+class sparql_results extends \ArrayIterator
 {
 	var $fields;
 	function fields() { return $this->fields; }
