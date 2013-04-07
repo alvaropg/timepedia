@@ -136,7 +136,6 @@ class TimelineController extends AbstractRestfulController
 			die (sparql_errno() . ": " . sparql_error());
 		}
 		var_dump ($result);
-		die (sparql_errno() . ": " . sparql_error());
 
 		$row = sparql_fetch_array($result);
 		$data = array ('Timeline' => $row['label']);
@@ -284,6 +283,7 @@ var $params = null;
 		));
 
 		$output = curl_exec($ch);
+		die ($output);
 		$info = curl_getinfo($ch);
 		if(curl_errno($ch))
 		{
