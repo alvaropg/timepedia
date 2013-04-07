@@ -607,6 +607,8 @@ $this->error = "Didn't even see a sparql element, is this really an endpoint?";
 
 function startXML($parser, $name, $attr)
 {
+	var_dump ($name);
+	print "\n";
 if( $name == "sparql" ) { $this->looks_legit = true; }
 if( $name == "result" )
 {
@@ -641,7 +643,7 @@ if( $name == "literal" )
 	}
 
 	function endXML($parser, $name)	{
-	if( $name == "results" )
+	if( $name == "result" )
 	{
 	$this->rows[] = $this->result;
 	$this->result = array();
