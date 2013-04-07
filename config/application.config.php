@@ -2,7 +2,7 @@
 return array(
     'modules' => array(
         'Application',
-        'Api',
+        'Main',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
