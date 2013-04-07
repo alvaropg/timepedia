@@ -283,7 +283,6 @@ var $params = null;
 		));
 
 		$output = curl_exec($ch);
-		die ($output);
 		$info = curl_getinfo($ch);
 		if(curl_errno($ch))
 		{
@@ -642,7 +641,7 @@ if( $name == "literal" )
 	}
 
 	function endXML($parser, $name)	{
-	if( $name == "result" )
+	if( $name == "results" )
 	{
 	$this->rows[] = $this->result;
 	$this->result = array();
