@@ -35,7 +35,8 @@ class TimelineController extends AbstractRestfulController
 
 	public function get($id) {
 		if (!$id) {
-			throw new Exception('Bad request. No category', 400);
+			print 'Bad request. No category';
+			exit;
 		}
 
 		return $this->populateTimeline($id);
