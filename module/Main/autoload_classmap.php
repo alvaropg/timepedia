@@ -6,4 +6,5 @@ return array(
 	'Main\PostProcessor\Image'                     => __DIR__ . '/src/Main/PostProcessor/Image.php',
 
 	'Main\Controller\InfoController' => __DIR__ . '/src/Main/Controller/InfoController.php',
+	'Main\Controller\TimelineController' => __DIR__ . '/src/Main/Controller/TimelineController.php',
 );

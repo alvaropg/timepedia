@@ -20,6 +20,7 @@ return array(
 	'controllers' => array(
 		'invokables' => array(
 			'info' => 'Main\Controller\InfoController',
+			'timeline' => 'Main\Controller\TimelineController',
 		)
 	),
 	'router' => array(
