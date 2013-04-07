@@ -15,8 +15,7 @@ class TimelineController extends AbstractRestfulController
 	public function __construct() {
 		$this->db = sparql_connect("http://dbpedia.org/sparql/");
 		if (!$this->db) {
-			print sparql_errno() . ": " . sparql_error(). "\n";
-			exit;
+			die (sparql_errno() . ": " . sparql_error());
 		}
 
 		$this->articles_count = 0;
@@ -35,8 +34,7 @@ class TimelineController extends AbstractRestfulController
 
 	public function get($id) {
 		if (!$id) {
-			print 'Bad request. No category';
-			exit;
+			return 'Bad request. No category';
 		}
 
 		return $this->populateTimeline($id);
@@ -62,7 +60,7 @@ class TimelineController extends AbstractRestfulController
 				  } LIMIT 1";
 		$result = sparql_query($query);
 		if (!$result) {
-			print sparql_errno() . ": " . sparql_error(). "\n"; exit;
+			die (sparql_errno() . ": " . sparql_error());
 		}
 		$row = sparql_fetch_array($result);
 		return array ('label' => $row['label'],
@@ -106,8 +104,7 @@ class TimelineController extends AbstractRestfulController
 			} LIMIT " . (MAX_DATES * 2);
 		$result = sparql_query($query);
 		if (!$result) {
-			print sparql_errno() . ": " . sparql_error(). "\n";
-			exit;
+			die (sparql_errno() . ": " . sparql_error());
 		}
 
 		while (($row = sparql_fetch_array($result)) AND $articles_count < MAX_DATES) {
@@ -136,8 +133,7 @@ class TimelineController extends AbstractRestfulController
 			} LIMIT 1";
 		$result = sparql_query($query);
 		if (!$result) {
-			print sparql_errno() . ": " . sparql_error(). "\n";
-			exit;
+			die (sparql_errno() . ": " . sparql_error());
 		}
 
 		$row = sparql_fetch_array($result);
