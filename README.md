@@ -1,33 +1,32 @@
-ZendSkeletonApplication
-=======================
-
-Introduction
-------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
-
+TimePedia
+=========
+A timeline Wikipedia RESTFul service based in the Wikipedia categories using DBPedia and SPARQL.
+It's in a very early stage of development
 
 Installation
 ------------
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use composer to install dependencies:
+Apache with mod_rewrite enabled, PHP > 5.3, Zend Framework 2 and Curl.
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar install
+This is a virtual host example config:
 
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
+        <VirtualHost *:80>
+	        ServerName timepedia.localhost
+	        ServerAdmin alvaropg@gmail.com
+	        DocumentRoot /var/www/html/timepedia/public
+	        SetEnv APPLICATION_ENV "development"
+	        ErrorLog logs/timpedia-error_log
+	        CustomLog logs/timepedia-access_log common
+	        <Directory /var/www/html/timepedia/public>
+                	DirectoryIndex index.php
+	                AllowOverride All
+                	Order allow,deny
+	                Allow from all
+	        </Directory>
+        </VirtualHost>
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+Test
+----
 
-Virtual Host
-------------
-Afterwards, set up a virtual host to point to the public/ directory of the
-project and you should be ready to go!
+        curl -i -H "Accept: application/json" http://timepedia.localhost/timeline.json/French_Revolution > file.json
+        curl -i -H "Accept: application/json" http://timepedia.localhost/timeline.json/Spanish_Civil_War > file.json
